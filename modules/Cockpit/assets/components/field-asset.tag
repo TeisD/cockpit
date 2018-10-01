@@ -113,7 +113,9 @@
 
             Cockpit.assets.select(function(assets){
                 if (Array.isArray(assets)) {
-                    $this.$setValue(assets[0]);
+                    $this.asset.path = ASSETS_URL.replace(SITE_URL, '')+assets[0].path;
+                    $this.$setValue($this.asset);
+                    $this.update();
                 }
             });
         }
