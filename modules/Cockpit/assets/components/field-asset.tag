@@ -98,6 +98,7 @@
                         }
 
                         if (response && Array.isArray(response.assets) && response.assets.length) {
+                            response.assets[0].path = ASSETS_URL.replace(SITE_URL, '')+response.assets[0].path;
                             $this.$setValue(response.assets[0]);
                         }
 
@@ -113,9 +114,8 @@
 
             Cockpit.assets.select(function(assets){
                 if (Array.isArray(assets)) {
-                    $this.asset.path = ASSETS_URL.replace(SITE_URL, '')+assets[0].path;
-                    $this.$setValue($this.asset);
-                    $this.update();
+                    assets[0].path = ASSETS_URL.replace(SITE_URL, '')+assets[0].path;
+                    $this.$setValue(assets[0]);
                 }
             });
         }
