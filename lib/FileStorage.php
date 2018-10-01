@@ -59,7 +59,7 @@ class FileStorage {
 
         $config = $this->config[$name];
         $adapter = new \ReflectionClass($config['adapter']);
-        $this->storages[$name] = new Filesystem($adapter->newInstanceArgs($config['args'] ?: []));
+        $this->storages[$name] = new Filesystem($adapter->newInstanceArgs($config['args'] ?: []), ['visibility' => 'public']);
 
         if (isset($config['mount']) && $config['mount']) {
             $this->manager->mountFilesystem($name, $this->storages[$name]);
