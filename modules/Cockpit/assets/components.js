@@ -1617,7 +1617,7 @@ riot.tag2('field-asset', '<div ref="uploadprogress" class="uk-margin uk-hidden">
                         }
 
                         if (response && Array.isArray(response.assets) && response.assets.length) {
-									assets[0].path = ASSETS_URL.replace(SITE_URL, '')+assets[0].path;
+									response.assets[0].path = ASSETS_URL.replace(SITE_URL, '')+response.assets[0].path;
                             $this.$setValue(response.assets[0]);
                         }
 
